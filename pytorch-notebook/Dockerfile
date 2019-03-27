@@ -6,12 +6,11 @@ FROM $BASE_CONTAINER
 
 LABEL maintainer="Jupyter Project <jupyter@googlegroups.com>"
 
-# Install Tensorflow
-# RUN conda install --quiet --yes \
-#     'tensorflow=1.12*' \
-#     'keras=2.2*' && \
-#     conda clean -tipsy && \
-#     fix-permissions $CONDA_DIR && \
-#     fix-permissions /home/$NB_USER
-
-RUN pip install tensorflow-gpu
+RUN conda install --quiet --yes \
+  pytorch \
+  torchvision \
+  cudatoolkit=10.0 \
+  -c pytorch && \
+  conda clean -tipsy && \
+  fix-permissions $CONDA_DIR && \
+  fix-permissions /home/$NB_USER

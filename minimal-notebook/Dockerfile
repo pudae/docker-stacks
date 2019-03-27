@@ -1,6 +1,7 @@
 # Copyright (c) Jupyter Development Team.
 # Distributed under the terms of the Modified BSD License.
-ARG BASE_CONTAINER=jupyter/base-notebook
+#ARG BASE_CONTAINER=jupyter/base-notebook
+ARG BASE_CONTAINER=base-notebook-gpu
 FROM $BASE_CONTAINER
 
 LABEL maintainer="Jupyter Project <jupyter@googlegroups.com>"
@@ -20,7 +21,7 @@ RUN apt-get update && apt-get install -yq --no-install-recommends \
     lmodern \
     netcat \
     pandoc \
-    python-dev \
+    python3.6-dev \
     texlive-fonts-extra \
     texlive-fonts-recommended \
     texlive-generic-recommended \
